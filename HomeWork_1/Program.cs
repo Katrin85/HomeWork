@@ -12,5 +12,5 @@ if (numB > max) max = numB;
 if (numA < min) min = numA;
 if (numB < min) min = numB;
 
-Console.WriteLine ("Максимальное число = " + max);
-Console.WriteLine ("Минимальное число = " + min);
+Console.WriteLine ($"{max} - большее число");
+Console.WriteLine ($"{min} - меньшее число");
