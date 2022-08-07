@@ -2,15 +2,13 @@
 //Задача №1. Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 
 Console.WriteLine ("Введите первое число");
-int numA = Convert.ToInt32(Console.ReadLine());
+int numA = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем первое число в переменную numA
 Console.WriteLine ("Введите второе число");
-int numB = Convert.ToInt32(Console.ReadLine());
-int max = numA;
-int min = numA;
-if (numA > max) max = numA;
-if (numB > max) max = numB;
-if (numA < min) min = numA;
-if (numB < min) min = numB;
+int numB = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем второе число в переменную numB
+int max = numA;  // Присваиваем переменной max число numA 
+int min = numA;  // Присваиваем переменной min число numA 
+if (numB > max) max = numB;   // Сравниваем числа, определяем максимальное число
+if (numB < min) min = numB;  // Сравниваем числа, определяем минимальное число
 Console.WriteLine ($"{max} - большее число");
 Console.WriteLine ($"{min} - меньшее число");
 */
@@ -18,14 +16,13 @@ Console.WriteLine ($"{min} - меньшее число");
 //Задача №2. Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
 
 Console.Write ("Введите первое число ");
-int num1 = Convert.ToInt32(Console.ReadLine());
+int num1 = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем первое число в переменную num1
 Console.Write ("Введите второе число ");
-int num2 = Convert.ToInt32(Console.ReadLine());
+int num2 = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем первое число в переменную num2
 Console.Write ("Введите третье число ");
-int num3 = Convert.ToInt32(Console.ReadLine());
+int num3 = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем первое число в переменную num3
 int max = num1;
-if (num1 > max) max = num1;
-if (num2 > max) max = num2;
+if (num2 > max) max = num2;  // Сравниваем числа, определяем максимальное число
 if (num3 > max) max = num3;
 Console.WriteLine($"Максимальное число = {max}");
 */
@@ -33,8 +30,8 @@ Console.WriteLine($"Максимальное число = {max}");
 //Задача №3. Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
 
 Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
-if (number % 2 == 1)
+int number = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем число в переменную number
+if (number % 2 == 1)  // математическая проверка четности числа
 {
    Console.WriteLine ($"Число {number} - нечетное");
 }
@@ -47,10 +44,10 @@ else
 //Задача №4. Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 
 Console.Write ("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine());
-for (int i = 1; i <= num; i = i + 1)
+int num = Convert.ToInt32(Console.ReadLine());  // Вводим и конвертируем первое число в переменную num
+for (int i = 2; i <= num; i = i + 1)  // Цикл от 2 (минимальное четное число) до num
 {
-    if (i % 2 == 0)
+    if (i % 2 == 0)  // Проверка на четность числа
     {
         Console.Write(i + " ");
     } 
