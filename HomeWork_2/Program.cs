@@ -21,17 +21,20 @@ int InputNumber (int number)
     {
         number = number / 10;
     } 
-    if (number >= 100)
+    if (number <= 99)
+    {
+        Console.WriteLine($"В числе {number} нет третьей цифры"); 
+        
+    } 
+
+    else 
     {
        number = number % 10;
     }
-    if (number < 99)
-    {
-        Console.WriteLine($"В числе {number} нет третьей цифры");  
-    } 
+   
     return number;
 }
 Console.Write("Введите число: ");
 int Number = Convert.ToInt32(Console.ReadLine());
 int newNumber = InputNumber(Number);
-Console.WriteLine(newNumber);
+Console.WriteLine($"Третье цифра числа {Number} - {newNumber}");
