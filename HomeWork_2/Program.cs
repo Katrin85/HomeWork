@@ -8,37 +8,63 @@ int InputThreeDigitNumber (int number)
     return des;
 }
 Console.Write("Введите трехзначное число: ");
-int ThreeDigitNumber = Convert.ToInt32(Console.ReadLine());
-int newNumber = InputThreeDigitNumber(ThreeDigitNumber);
+int threeDigitNumber = Convert.ToInt32(Console.ReadLine());
+int newNumber = InputThreeDigitNumber(threeDigitNumber);
 Console.WriteLine(newNumber);
 */
-/*
+
 // Задача №2. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-
-int InputNumber (int number)
+static void FirstMethod(int inputUserNum)  // Способ первый. Метод типа viod. Ничего не отдаёт. Просто выполняет код.
+                                                   // На входе число, в котором ищем 3-ю цифру (при её наличии).
+                                                   // Решение задачи методом преобразовании числа в строку и поиска в ней 3-го символа.
 {
-    while (number >= 1000)
-    {
-        number = number / 10;
-    } 
-    if (number < 100)
-    {
-        Console.WriteLine($"В числе {number} нет третьей цифры");
-    } 
-    else 
-    {
-       number = number % 10;
-    }
-   
-    return number;
+    Console.WriteLine("Решение 1-м способом");
+    int a = inputUserNum;  // Переменная, в которую присваиваем введённое изначально число для поиска 3-й цифры.
+    if (a < 0)  // Если она < 0 
+        a = a * (-1);  // умножаем её на (-1), чтобы откинуть символ "-"
+    string numberToText = Convert.ToString(a);  // Конвертируем в тип string переменную а
+    if (numberToText.Length > 2)  // Если строковое "число" >2 
+        Console.WriteLine("     Третья цифра числа " + inputUserNum + " является " + numberToText[2]);  // указываем третий символ в строковом "числе" [2]
+    else  // Иначе выводим сообщение, что его нет
+        Console.WriteLine("     В числе " + inputUserNum + " третьей цифры нет ");
 }
-Console.Write("Введите число: ");
-int Number = Convert.ToInt32(Console.ReadLine());
-int newNumber = InputNumber(Number);
-Console.WriteLine($"Третье цифра числа {Number} - {newNumber}");
-*/
-// Задача №3. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
 
+static void SecondMethod(int inputUserNum)  // Способ второй. Метод типа viod. Ничего не отдаёт. Просто выполняет код.
+                                            // На входе число, в котором ищем 3-ю цифру (при её наличии)
+                                            // Решение задачи методом:
+                                            // 1. Определение <0  >0 это число. Соответственно, при <0 умножаем его на (-1)
+                                            // 2. Если оно <100, то указываем, что 3-й цифры в числе нет.
+                                            // 3. Если оно >1000, то с помощью цикла делим его на 10 до того момента, пока оно не станет 3-хзначным
+{
+    Console.WriteLine("Решение 2-м способом");
+    int a = inputUserNum;  // Переменная, в которую присваиваем введённое изначально число для поиска 3-й цифры.
+    if (a < 0)  // Если она < 0 
+        a = a * (-1);  // умножаем её на (-1), чтобы откинуть символ "-"
+    if (a < 100)  // Если оно <100, то указываем, что 3-й цифры в числе нет.
+        Console.WriteLine($"     В числе {inputUserNum} нет третьей цифры"); //выводим сообщение, что 3-й цифры нет
+    else
+    {
+        while (a >= 1000)  // Данным циклом добиваемся, чтобы число стало 3-хзначным методом его пошаговым делением на 10
+            a = a / 10;        
+        a = a % 10;  // С помощью оператора остатка определяем 3-ю цифру в числе
+        Console.WriteLine("     Третья цифра числа " + inputUserNum + " является " + a);
+    }
+}
+Console.WriteLine("Задача №2. \r\nНапишите программу, которая выводит третью цифру " +
+    "заданного числа или сообщает, что третьей цифры нет");
+Console.Write("Введите число: ");
+int inputUserNum = Convert.ToInt32(Console.ReadLine());  // Вводим то число, в котором ищем 3-ю цифру
+
+FirstMethod(inputUserNum);  // Вызываем метод нахождения 3-й цифры числа (первый вариант решения)
+SecondMethod(inputUserNum); // Вызываем метод нахождения 3-й цифры числа (второй вариант решения)
+
+
+
+
+
+
+// Задача №3. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+/*
 void DayWeek (int day) 
 {
     if (day == 6 || day == 7)
@@ -50,3 +76,4 @@ void DayWeek (int day)
 Console.WriteLine("Введиите цифру, обозначающую день недели: ");
 int day = Convert.ToInt32(Console.ReadLine());
 DayWeek(day);
+*/
