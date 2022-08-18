@@ -113,4 +113,14 @@ int Count(int number)
 // Задача №3. Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
-
+            int[] intArray1 = new int[8]; 
+            for (int i = 0; i < 8; i++)
+            {
+                Console.Write("Введите " + (i + 1) + "-й элемент массива: ");
+                intArray1[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("Получившийся массив выводим на экран:");
+            for (int i = 0; i < 8; i++)
+                Console.Write(intArray1[i] + " ");
+            Console.WriteLine();
+        
