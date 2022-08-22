@@ -87,7 +87,7 @@ Console.WriteLine("Cумма элементов, стоящих на нечёт�
 Console.ForegroundColor = ConsoleColor.White;
 */
 
-/*
+
 // Задача №3. Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 // [3 7 22 2 78] -> 76
 
@@ -97,7 +97,7 @@ double[] CreateArray(int size) // метод. На входе размернос
     for (int i = 0; i < size; i++)
         {
             Console.Write("Введите " + (i + 1) + "-й элемент массива: ");
-            newArray[i] = double.Parse(Console.ReadLine());
+            newArray[i] = Convert.ToDouble(Console.ReadLine());
         }
     return newArray;  // возвращаем массив
 }
@@ -128,4 +128,3 @@ int a = Convert.ToInt32(Console.ReadLine());
 double[] array = CreateArray(a);
 double difference = SumElement(array);
 Console.WriteLine("Разность максимального и минимального элементов составит: " + difference);
-*/
