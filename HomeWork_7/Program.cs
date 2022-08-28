@@ -108,3 +108,55 @@ Console.WriteLine();
 
 // Задача №3. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+{
+    int[,] newArray = new int[rows, columns];
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < columns; j++)
+            newArray[i, j] = new Random().Next(minValue, maxValue + 1);
+    return newArray;
+}
+
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + "\t");
+        Console.WriteLine();
+    }
+}
+void ArithmeticMean(int[,]arr)
+{
+    Console.WriteLine("Среднее арифметическое:");
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        double arithmeticMean = 0;
+        double sum = 0;
+        for (int i = 0; i < arr.GetLength(0); i++)
+        {
+            sum += arr[i, j];
+            arithmeticMean =Math.Round(sum / arr.GetLength(0), 1);
+        }
+    Console.Write(arithmeticMean + "\t");
+    }
+}
+
+Console.WriteLine("Программа, которая находит среднее арифметическое элементов в каждом столбце массива");
+
+Console.Write("Введиче число строк: ");
+int i = Convert.ToInt16(Console.ReadLine());
+
+Console.Write("Введиче число столбцов: ");
+int j = Convert.ToInt16(Console.ReadLine());
+
+Console.Write("Введите минимальное возвожное значение: ");
+int min = Convert.ToInt16(Console.ReadLine());
+
+Console.Write("Введите максимальное возвожное значение: ");
+int max = Convert.ToInt16(Console.ReadLine());
+
+int[,] myArray = CreateRandom2dArray(i, j, min, max);
+Show2dArray(myArray);
+ArithmeticMean(myArray);
