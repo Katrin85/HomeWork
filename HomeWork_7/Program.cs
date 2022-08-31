@@ -105,7 +105,7 @@ else
 }
 Console.WriteLine();
 */
-
+/*
 // Задача №3. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
 int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
@@ -137,7 +137,7 @@ void ArithmeticMean(int[,]arr)
         for (int i = 0; i < arr.GetLength(0); i++)
         {
             sum += arr[i, j];
-            arithmeticMean =Math.Round(sum / arr.GetLength(0), 1);
+            arithmeticMean = Math.Round(sum / arr.GetLength(0), 1);
         }
     Console.Write(arithmeticMean + "\t");
     }
@@ -160,3 +160,4 @@ int max = Convert.ToInt16(Console.ReadLine());
 int[,] myArray = CreateRandom2dArray(i, j, min, max);
 Show2dArray(myArray);
 ArithmeticMean(myArray);
+*/
