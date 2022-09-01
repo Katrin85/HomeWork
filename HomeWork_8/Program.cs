@@ -8,17 +8,17 @@
 // 9 5 3 2
 // 8 4 4 2
 
-int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue)
+int[,] CreateRandom2dArray(int rows, int columns, int minValue, int maxValue) // метод заполняет массив случайными числами в заданном диапозоне
 {
-    int[,] newArray = new int[rows, columns];
+    int[,] array = new int[rows, columns];
 
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < columns; j++)
-            newArray[i, j] = new Random().Next(minValue, maxValue + 1);
-    return newArray;
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+    return array;
 }
 
-void Show2dArray(int[,] array)
+void Show2dArray(int[,] array) // метод вывода на экран
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -27,47 +27,22 @@ void Show2dArray(int[,] array)
         Console.WriteLine();
     }
 }
-int[,] SortingArray (int [,]a, int min, int max)
-
+int[,] SortingArray (int [,] sortArray) // метод сортировки
 {
-    int temp;
-    int maxI = 0;
-    int minJ = 0;
-    int maxJ = 0;
-    int minI = 0;
-    max = a[0,0];
-    min = a[0,0];
-    for (int i = 0; i < a.GetLength(0); i++)
+    for (int j = 0; j < sortArray.GetLength(1); j++)
     {
-        for(int j = 0; j < a.GetLength(1); j++)
-        {
-            for(int k = 0; k < a.GetLength(1); k++)
-            temp = a[i,j];
-            a[i,j] = a[j, k];
-            a[j, k] = temp;
-        }
+        for (int i = 0; i < sortArray.GetLength(0); i++)
+            for (int k= 0; k < sortArray.GetLength(1) - 1; k++)
+                if (sortArray[i,k] > sortArray[i,k + 1])
+                {
+                    int temp = sortArray[i, k + 1];
+                    sortArray[i, k + 1] = sortArray[i, k];
+                    sortArray[i, k] = temp;
+                }
     }
-    return a;
-    for (int i = 0; i < a.GetLength(0); i++)
-    {
-        for (int j = 0; j < a.GetLength(1); j++)
-        {
-            if (max < a[i, j])
-            {
-                max = a[i, j];
-                maxI = i;
-                maxJ = j;
-            }
-            if (min > a[i, j])
-            {
-                min = a[i, j];
-                minI = i;
-                minJ = j;
-            }
-        }
-        return a;
-    }
+    return sortArray;
 }
+
 
 Console.Write("Введиче число строк: ");
 int i = Convert.ToInt16(Console.ReadLine());
@@ -84,5 +59,8 @@ int max = Convert.ToInt16(Console.ReadLine());
 int[,] myArray = CreateRandom2dArray(i, j, min, max);
 Show2dArray(myArray);
 
-int[,] Array = SortingArray(a[,], min, max);
-SortingArray(a);
+Console.WriteLine();
+Console.WriteLine("Программа отсортировала этот массив. Выводим его на экран:");
+
+int[,] newArray = SortingArray(myArray);
+Show2dArray(newArray);
