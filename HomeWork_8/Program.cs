@@ -27,39 +27,46 @@ void Show2dArray(int[,] array)
         Console.WriteLine();
     }
 }
-int[,] SortingArray (int [,] SArrya, int min, int max)
+int[,] SortingArray (int [,]a, int min, int max)
 
 {
-    int max = SArrya[0,0];
-    int min = SArrya[0,0];
-    for (int i = 0; i < SArray.GetLength(0); i++)
+    int temp;
+    int maxI = 0;
+    int minJ = 0;
+    int maxJ = 0;
+    int minI = 0;
+    max = a[0,0];
+    min = a[0,0];
+    for (int i = 0; i < a.GetLength(0); i++)
     {
-        for(int j = 0; j < SArray.GetLength(1); j++)
+        for(int j = 0; j < a.GetLength(1); j++)
         {
-            for(int k = 0; k < SArray.GetLength(1); k++)
-            int temp = SArrya[i,j];
-            SArrya[i,j] = SArrya[j, k];
-            SArrya[j, k] =  temp;
+            for(int k = 0; k < a.GetLength(1); k++)
+            temp = a[i,j];
+            a[i,j] = a[j, k];
+            a[j, k] = temp;
         }
     }
-    return SArrya;
-    for (int i = 0; i < SArrya.GetLength(0); i++)
-        for (int j = 0; j < SArrya.GetLength(1); j++)
+    return a;
+    for (int i = 0; i < a.GetLength(0); i++)
+    {
+        for (int j = 0; j < a.GetLength(1); j++)
         {
-            if (max < SArrya[i, j])
+            if (max < a[i, j])
             {
-                max = SArrya[i, j];
+                max = a[i, j];
                 maxI = i;
                 maxJ = j;
             }
-            if (min > SArrya[i, j])
+            if (min > a[i, j])
             {
-                min = SArrya[i, j];
+                min = a[i, j];
                 minI = i;
                 minJ = j;
             }
         }
-        return SArrya;
+        return a;
+    }
 }
 
 Console.Write("Введиче число строк: ");
@@ -77,5 +84,5 @@ int max = Convert.ToInt16(Console.ReadLine());
 int[,] myArray = CreateRandom2dArray(i, j, min, max);
 Show2dArray(myArray);
 
-int[,] Array = SortingArray(SArrya);
-SortingArray(Arrya);
+int[,] Array = SortingArray(a[,], min, max);
+SortingArray(a);
