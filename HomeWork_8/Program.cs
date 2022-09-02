@@ -86,24 +86,27 @@ void Show2dArray(int[,] array) // метод вывода на экран
         Console.WriteLine();
     }
 }
-
-void sumStringArray (int[,] sumArray)
+void sumStringArray (int[,] sumArray)  // метод считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов
 {
-    int index = 0;
-    int sum = 0;
-    int minsum = 0;
-    for(int i = 0; i < sumArray.GetLength(0); i++)
+    int minSum = 0; // минимальная сумма
+    int sumString = SumStringElements(sumArray, 0); // строка с минимальной суммой
+    for (int i = 1; i < sumArray.GetLength(0); i++) // находит линию с минамальной суммой
     {
-        for (int j = 0; j < sumArray.GetLength(1); j++)
+        int temp = SumStringElements(sumArray, i);
+        if (sumString > temp)
         {
-            sum = sum + sumArray[i, j];
-            if (sum < sumArray[i,j]) sum = minsum;
-            index = i;  
+            sumString = temp;
+            minSum = i;
         }
-        
     }
-    Console.Write($"Строка с минимальной суммой {sum} элементов равна {index + 1}. ");
-    
+    int SumStringElements(int[,] array, int i) // находим сумму элементов в каждой строке
+    {
+        int sumString = array[i,0];
+        for (int j = 1; j < array.GetLength(1); j++)
+            sumString += array[i,j];
+    return sumString;
+    }
+Console.WriteLine($"\n{minSum + 1} - строкa с наименьшей суммой ({sumString}) элементов ");
 }
 
 Console.Write("Введиче число строк: ");
